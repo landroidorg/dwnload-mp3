@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="HandheldFriendly" content="True" />
 <meta name="MobileOptimized" content="320" />
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 <title>Anjay - Ex Stafaband - MP3 Download</title>
 <style type="text/css">
     body,html{font-family:Lato,Arial,sans-serif;font-size: 16px;}.body{align:center;}
@@ -22,7 +23,6 @@
 <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 <link id="bootstrapTheme" href="//cdn.jsdelivr.net/gh/landroidorg/bootstrap431@master/darkly.min.css?v=1.0" rel="stylesheet">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-<script type="6220850ce498f65d4dae8674-text/javascript" src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 <link href="https://www.lagump3.my.id/favicon.ico" rel="shortcut icon" type="image/x-icon">
 <script type="text/javascript">
 	function getUrlVars() {
@@ -31,21 +31,33 @@
         vars[key] = value;
     });
     return vars;
-}
-var id = getUrlVars()["token"];
-var judul = getUrlVars()["judul"];
-function getUrlParam(parameter, defaultvalue){
-    var urlparameter = defaultvalue;
-    if(window.location.href.indexOf(parameter) > -1){
-        urlparameter = getUrlVars()[parameter];
-        }
-    return urlparameter;
-}
-var judul = getUrlParam('token','kosong');
-document.getElementById('results1').innerHTML = '<iframe style="max-height:50px;border:0px;max-width: 210px;overflow:hidden;" scrolling="no" src="https://y-api.org/button/?v='+ id +'=mp3&bc=#0EAA4C" sandbox="allow-scripts allow-same-origin" WIDTH="210" HEIGHT="40" FRAMEBORDER="0" MARGINWIDTH="0" MARGINHEIGHT="0" ></iframe>';
-document.getElementById('results2').innerHTML = '<iframe style="height:50px;border:0;width:75%px;  margin-top: 10px;  display: inline-block;" src="https://recordmp3.co/#/watch?layout=button&amp;t_press_to_start=Convert%20to%20mp3&amp;t_waiting_for_worker=Menyiapkan%20Link...&amp;t_in_queue=Converting&amp;t_converting=Proses...&amp;t_done=Download&amp;v='+ id +' " allowtransparency="true" scrolling="no"></iframe>';
+	}
+		var id = getUrlVars()["id"];
+		var judul = getUrlVars()["judul"];
 
+	function getUrlParam(parameter, defaultvalue){
+	    var urlparameter = defaultvalue;
+	    if(window.location.href.indexOf(parameter) > -1){
+	        urlparameter = getUrlVars()[parameter];
+	        }
+	    return urlparameter;
+	}
+	var judul = getUrlParam('token','kosong');
+	function valid(){
+				let videoid = getvar()['id'];
+				if(videoid){
+					getready();
+				} else {
+					alert('empty id!!');
+				}
+	}
 </script>
+	<script>
+        $(document).ready(function() {
+          $("#download").html(`<iframe style="max-height:50px;border:0px;max-width: 210px;overflow:hidden;" scrolling="no" src="https://y-api.org/button/?v=${id}=mp3&bc=#0EAA4C" sandbox="allow-scripts allow-same-origin" WIDTH="210" HEIGHT="40" FRAMEBORDER="0" MARGINWIDTH="0" MARGINHEIGHT="0" ></iframe>`);
+          });
+      </script>
+
 </head>
 <body>
 <div class="container">
@@ -58,8 +70,7 @@ document.getElementById('results2').innerHTML = '<iframe style="height:50px;bord
 
 <div class="col-md-9 m-2">
 <p style="color:red">&darr;&darr;&darr;&darr;&darr;&darr;&darr;</p>
-<div id="results1"></div>
-<div id="results2"></div>
+<div id="download"></div>
 <p style="color:red">&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;</p>
 
 </div>
