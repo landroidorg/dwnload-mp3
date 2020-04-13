@@ -34,15 +34,6 @@
 	}
 		var id = getUrlVars()["id"];
 		var judul = getUrlVars()["judul"];
-
-	function getUrlParam(parameter, defaultvalue){
-	    var urlparameter = defaultvalue;
-	    if(window.location.href.indexOf(parameter) > -1){
-	        urlparameter = getUrlVars()[parameter];
-	        }
-	    return urlparameter;
-	}
-	var judul = getUrlParam('token','kosong');
 	function valid(){
 				let videoid = getvar()['id'];
 				if(videoid){
@@ -51,10 +42,8 @@
 					alert('empty id!!');
 				}
 	}
-</script>
-	<script>
         $(document).ready(function() {
-          $("#download").html(`<iframe src="https://y-api.org/button/?v=${id}&f=mp3&bc=#0EAA4C" FRAMEBORDER="0" MARGINWIDTH="0" MARGINHEIGHT="0" SCROLLING="no" width="200px" height="40px"></iframe>`);
+          $("#download").html(`<iframe src="https://y-api.org/button/?v=${id}&f=mp3&bc=#0EAA4C" scrolling="no" style="width:320px;height:38px;border:none;"></iframe>`);
           });
       </script>
 
