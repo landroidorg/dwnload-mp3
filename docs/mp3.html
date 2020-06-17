@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<style type="text/css">
+html, body {
+  height: 100%;
+  overflow: auto;
+}
+</style>
+</head>
+<body>
+</body>
+<script type="efaeaceb709a2ef2c547b679-text/javascript">
+		function gVar() {
+		    var vars = {};
+		    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,    
+		    function(m,key,value) {
+		      vars[key] = value;
+		    });
+		    return vars;
+		}
+		function cktkn(id, d, e){
+			if(d == e.token){
+				var body = `<div style="width:100%;margin-bottom:20px;max-height:40px;overflow:hidden">
+			<iframe src="//y-api.org/button/?v=${id}&amp;f=mp3&fc=#ffffff" style="border: 0; top:0; left:0; right:0; bottom:0; width:100%; height:100%" scrolling="no" FRAMEBORDER="0"></iframe>
+		</div>`;
+				document.write(body);
+			}
+		}
+		var yb_id = gVar()["v"];
+		var type = gVar()["token"];
+fetch('https://json.ganteng.eu/token.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: 'do=wakwak'
+  })  .then((response) => {
+    return response.json();
+  })
+  .then((e) => {
+    cktkn(yb_id, type, e);
+  });
+
+	</script>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="efaeaceb709a2ef2c547b679-|49" defer=""></script></html>
